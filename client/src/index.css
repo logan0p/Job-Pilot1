@@ -1,0 +1,97 @@
+@import "tailwindcss";
+
+@import "@fontsource/inter";
+@import "@fontsource/space-grotesk";
+@import "tailwindcss";
+
+:root {
+  font-family: "DM Sans", sans-serif;
+}
+
+body {
+  margin: 0;
+  background: #020617;
+  color: white;
+}
+
+.font-display {
+  font-family: "Space Grotesk", sans-serif;
+}
+
+/* Premium scrollbar */
+
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: #020617;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #164e63;
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #0891b2;
+}
+
+/* Animated glow */
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-float {
+  animation: float 5s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 4s ease-in-out infinite;
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+
+background:
+radial-gradient(circle at top,#172554,#020617 55%);
+
+color:white;
+
+font-family:"Inter",sans-serif;
+
+overflow-x:hidden;
+
+min-height:100vh;
+
+}

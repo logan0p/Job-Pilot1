@@ -1,0 +1,30 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const path_1 = __importDefault(require("path"));
+const resume_route_1 = __importDefault(require("./routes/resume.route"));
+const user_route_1 = __importDefault(require("./routes/user.route"));
+const dashboard_routes_1 = __importDefault(require("./routes/dashboard.routes"));
+const analytics_routes_1 = __importDefault(require("./routes/analytics.routes"));
+const express_1 = __importDefault(require("express"));
+const cors_1 = __importDefault(require("cors"));
+const dotenv_1 = __importDefault(require("dotenv"));
+const job_route_1 = __importDefault(require("./routes/job.route"));
+const auth_route_1 = __importDefault(require("./routes/auth.route"));
+dotenv_1.default.config();
+const app = (0, express_1.default)();
+app.use((0, cors_1.default)());
+app.use(express_1.default.json());
+app.get("/", (req, res) => {
+    res.send("🚀 JobPilot Backend Running");
+});
+app.use("/api/auth", auth_route_1.default);
+app.use("/api/jobs", job_route_1.default);
+app.use("/api/resume", resume_route_1.default);
+app.use("/api/dashboard", dashboard_routes_1.default);
+app.use("/api/analytics", analytics_routes_1.default);
+app.use("/api/user", user_route_1.default);
+app.use("/uploads", express_1.default.static(path_1.default.join(__dirname, "../uploads")));
+exports.default = app;
